@@ -1,0 +1,138 @@
+\documentclass{homework}
+\author{Baikang Guo}
+\class{Exercises of \textit{Stellar Interiors - Physical Priciples, Structure, and Evolution}}
+\date{\today}
+\title{Interview Questions}
+\address{End of the Assignment}
+
+\graphicspath{{./media/}}
+
+\begin{document} \maketitle
+
+\question (Exercises 1.2) We stated, without proof, that the central pressure of the constant density star was a lower limit (§{1.4}); that is, central pressures must exceed $P_c = 3 G \mathcal{M}^2/(8\pi \mathcal{R}^4).$ The proof of that statement requires a bit more work than we wish to attempt now. There is, however, a weaker lower limit on $P_c.$ To get at this consider th function 
+$$f(r)=P(r) + \frac{G {\mathcal{M}_r}^2}{8\pi r^4}.$$
+\begin{enumerate}
+  \item Show that $f(r)$ decreases outward with increasing $r.$ (Hint: Differentiate $f(r)$ with respect to $r$ and use the equation of hydrostatic quilibrium to show $df/dr < 0.$)
+  \item Assuming zero pressure at $\mathcal{R},$ demonstrate (almost immediately) that $$P_c > \frac{G\mathcal{M}^2}{8\pi \mathcal{R}^4}$$ which is less stringent than that given by (1.42). Note that you must show ${\cal{M}_r}^2/r^4$ goes to zero as $r \rightarrow 0.$
+\end{enumerate}
+
+\begin{sol}
+  \begin{enumerate}
+    \item Take the derivate of $f(r)$ respect to $r$: 
+          \begin{equation}
+            \frac{d f(r)}{d r} = \frac{d P(r)}{d r} + \frac{d}{d r} \left( \frac{G {\mathcal{M}_r}^2}{8\pi r^4} \right). \label{eq:1.2.1}
+          \end{equation}
+          The equation of hydrostatic equilibrium (1.6) gives:
+          \begin{equation*}
+            \frac{d P}{d r} = -\frac{G \cal{M}_r}{r^2}\rho.
+          \end{equation*}
+          We know that $d \cal{M}_r = 4\pi r^2 \rho(r) d r$, then using the chain rule, the second term in Equation \ref{eq:1.2.1} becomes:
+          \begin{align*}
+            \frac{d}{d r} \left( \frac{G {\mathcal{M}_r}^2}{8\pi r^4} \right) & = \frac{G}{8 \pi} \frac{d}{dr} \left( \frac{{\cal{M}_r}^2}{r^4}\right) \\
+            & = \frac{G}{8\pi} \left[ \frac{1}{r^4} \frac{d \Mr ^2}{dr} + \Mr^2\frac{d}{dr} \left( \frac{1}{r^4}\right)\right] \\
+            & = \frac{G}{8 \pi} \left[ \frac{1}{r^4} 2 \Mr \frac{d \Mr}{dr} + \Mr ^2 (-4) \frac{1}{r^5}\right] \\
+            & = \frac{G}{8\pi} \left[ \frac{1}{r^4} 2\Mr 4\pi r^2 \rho - 4 \Mr^2 \frac{1}{r^5}\right] \\
+            & = \frac{G \Mr}{r^2}\rho - \frac{G \Mr^2}{2\pi r^5}.
+          \end{align*}
+          Substitude the results of $dP/dr$ and $d \left( \frac{G {\mathcal{M}_r}^2}{8\pi r^4} \right)/dr$ back to Equation \ref{eq:1.2.1}:
+          \begin{equation}
+            \frac{df(r)}{dr} = -\frac{G \cal{M}_r}{r^2}\rho + \frac{G \Mr}{r^2}\rho - \frac{G \Mr^2}{2\pi r^5} = - \frac{G \Mr^2}{2\pi r^5}.
+          \end{equation}
+          Since $G, \Mr, 2\pi > 0$, and we want $r > 0$ otherwise if $r=0$ will blow up the equation,
+          \begin{equation*}
+            \frac{G \Mr^2}{2\pi r^5} > 0;
+          \end{equation*}
+          thus, $df/dr < 0.$
+    \item Assuming zero pressure at $\cal{R}$: $P(\cal{R}) = 0,$ then
+          \begin{equation}
+            f(\cal{R}) = P(\cal{R}) + \frac{G \Mr^2}{8\pi \cal{R}^4} = \frac{G \Mr^2}{8\pi \cal{R}^4}.
+          \end{equation}
+          Note that, Equation (1.42) in the textbook is the result with the constant-density model. Then, as $r \rightarrow 0,$ using Equation (1.41) in the textbook, $f(r)$ becomes:
+          \begin{align}
+            \lim_{r \rightarrow 0} f(r) &= \lim_{r \rightarrow 0} \left[ P(r) + \frac{G \Mr ^2}{8\pi r^4} \right] \nonumber \\
+            &= \lim_{r \rightarrow 0} P_c \left( 1 - \frac{r^2}{\cal{R}^2}\right) + \frac{G}{8\pi} \lim_{r \rightarrow 0} \frac{\Mr ^2}{r^4}, \nonumber
+          \end{align}
+          where the second term, by the constand-density model, $\Mr = r^3 \cal{M}/\cal{R}^3$, is
+          \begin{align}
+            \lim_{r \rightarrow 0} \frac{\Mr^2}{r^4} &= \lim_{r \rightarrow 0} \left(\frac{r^3}{\cal{R}^3}\cal{M}\right)^2 \frac{1}{r^4} \nonumber \\
+            &= \frac{\cal{M}^2}{\cal{R}^6} \lim_{r \rightarrow 0} r^2 = 0. \nonumber
+          \end{align}
+          Therefore, $\lim_{r \rightarrow 0} f(r) = P_c.$ Since $df/dr < 0$ as we shown in part 1, that means the function $f(r)$ is decreasing as $r$ increasing. So,
+          \begin{align}
+            \lim_{r \rightarrow 0} f(r) > f(\cal{R}) \implies P_c > \frac{G \Mr^2}{8\pi \cal{R}^4},
+          \end{align}
+          as stated in the question.
+  \end{enumerate}
+  
+\end{sol}
+
+\question (Exercises 1.8) In the paragraph follwoing the expression of the virial theorem (1.18) we stated that an extra term $-3P_SV_S$ should appear on the righthand side if we had chosen to consider only that part of the spherical star interior to $r = r_S$ having a volume $V_S$ and a surface pressure $P_S$ at $r_S.$
+\begin{enumerate}
+  \item Prove this for the case of hydrostatic equilibrium; that is, show that the correct expression is $$2K + \Omega - 3P_SV_S = 0.$$ \textit{Hint}: Integrate (1.22) by parts using the equation of hydrostatic equilibrium (1.5 or 1.16) and the mass equation, and remember to only go out to $r_S$ in that integration and the one for $\Omega$ (1.7).
+  \item Show explicitly that this amended version works for the constant density sphere.
+\end{enumerate}
+
+\begin{sol}
+  \begin{enumerate}
+    \item Following by the hint, but using Equation (1.21) instead of (1.22), we have
+          \begin{align}
+            2K = 3 \int_{r=0}^{r=r_S} P dV &= 3 \left[\left(P_SV_S - P_0V_0\right) - \int_{P} V dP\right] \nonumber \\
+            &= 3P_SV_S - 3\int_{P}VdP \label{eq:1.8.1}.
+          \end{align}
+          Using Equation (1.16), the second term in Equation \ref{eq:1.8.1} becomes
+          \begin{align}
+            3\int_{P}VdP &= 3\int_{\cal{M}} V \left( - \frac{G \Mr}{4 \pi r^4}d\Mr\right) \nonumber \\
+            &= -3 \int_{\cal{M}} \left(\frac{4}{3}\pi r^3\right)\left( \frac{G \Mr}{4 \pi r^4}\right) d\Mr \nonumber \\
+            &= -\int_{\cal{M}} \frac{G \Mr}{r} d\Mr = \Omega. \label{eq:1.8.2}
+          \end{align}
+          Then,
+          \begin{equation}
+            2K = 3P_SV_S - \Omega \implies 2K + \Omega - 3P_SV_S = 0, \nonumber
+          \end{equation}
+          as required by the question.
+    \item With the assumption of constant density sphere, we can directly calculate $2K$ and $\Omega$. Since the density is unchanged in $r$ dimension, we have $\Mr$: 
+          \begin{equation}
+            d\Mr = 4 \pi r^2 \rho dr \implies \Mr = \frac{4}{3}\pi\rho r^3. \nonumber
+          \end{equation}
+          We can find $P(r)$ from the equation of hydrostatic equilibrium,
+          \begin{equation}
+            \frac{dP}{dr} = - \frac{G \Mr}{r^2}\rho = - \frac{4 \pi}{3} G \rho^2 r.
+          \end{equation}
+          Take the integration on both side, we have
+          \begin{equation}
+            P(r) = -\frac{2\pi}{3} G \rho^2 r^2 + \mathrm{const.}, \label{eq:1.8.3}
+          \end{equation}
+          with the assumption that $P(r_S)=P_S,$
+          \begin{align*}
+            &P(r_S) = P_S = - \frac{2 \pi}{3} G \rho^2 {r_S}^2 + \mathrm{const.} \nonumber\\
+            \implies& \mathrm{const.} = P_S + \frac{2 \pi}{3} G \rho^2 {r_S}^2.
+          \end{align*}
+          Thus, Equation \ref{eq:1.8.3} is
+          \begin{equation}
+            P(r) = P_s + \frac{2\pi}{3}G\rho^2({r_S}^2 - r^2).
+          \end{equation}
+          Note that $dV = d(4 \pi r^3/3),$ then $2K$ is
+          \begin{align}
+            2K = \int_{V} P dV &= 3 \int_{0}^{r_S} \left[ \frac{2 \pi}{3} G \rho^2 \left( {r_S}^2 - r^2\right) + P_S\right] d \left(\frac{4}{3}\pi r^3\right) \nonumber \\
+            &= 3 \int_{0}^{r_S} \left[ \frac{2 \pi}{3} G \rho^2 \left( {r_S}^2 - r^2\right) + P_S\right] 4\pi r^2 dr \nonumber \\
+            &= 3 \left[ \int_{0}^{r_S} \frac{2\pi}{3}G\rho^2 \left( {r_S}^2 - r^2\right) 4\pi r^2 dr + P_S\int_{0}^{r_S} 4 \pi r^2 dr\right] \nonumber \\
+            &= \frac{16\pi^2}{15} G \rho^2 {r_S}^5 + 3 P_S V_S.
+          \end{align}
+          The $\Omega,$ by Equation \ref{eq:1.8.2}, in this situation, is
+          \begin{align}
+            \Omega = 3 \int_{P} V dP &= 3 \int_{0}^{r_S} \left(\frac{4}{3}\pi r^3 \right) \left(- \frac{4\pi}{3} G \rho^2 r dr \right) \nonumber \\
+            &= -3 \int_{0}^{r_S} \frac{16}{9} \pi^2 G \rho^2 r^4 dr \nonumber \\
+            &= -\frac{16\pi^2}{15} G \rho^2 {r_S}^5.
+          \end{align}
+          Now,
+          \begin{equation}
+            2K + \Omega - 3 P_S V_S = \frac{16\pi^2}{15} G \rho^2 {r_S}^5 + 3 P_S V_S - \frac{16\pi^2}{15} G \rho^2 {r_S}^5 - 3P_S V_S = 0,
+          \end{equation}
+          which the equation still holds for the constant density sphere.
+
+
+  \end{enumerate}
+  
+\end{sol}
+
+\end{document}
